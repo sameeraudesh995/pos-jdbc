@@ -116,5 +116,24 @@ public class CustomerFormController {
     }
 
     public void customerDeleteOnAction(ActionEvent actionEvent) {
+
+        int customerId =Integer.parseInt(cusId.getText());
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc","root","12345");
+            String sql = "DELETE FROM customer WHERE id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,customerId);
+            int isDelete = statement.executeUpdate();
+            if(isDelete>0){
+                System.out.println("done");
+                clearField();
+            }else{
+                System.out.println("noo");
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
