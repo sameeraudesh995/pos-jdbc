@@ -84,4 +84,34 @@ public class CustomerFormController {
         cusAdres.setText("");
         cusSlry.setText("");
     }
+
+    public void customerUpdateOnAction(ActionEvent actionEvent) {
+        int id = Integer.parseInt(cusId.getText());
+        String name= cusName.getText();
+        String address=cusAdres.getText();
+        double salary= Double.parseDouble(cusSlry.getText());
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc","root","12345");
+            String sql = "UPDATE customer SET name=?, address=?, salary=? WHERE id=?";
+            PreparedStatement stm=con.prepareStatement(sql);
+            stm.setString(1, name);
+            stm.setString(2, address);
+            stm.setDouble(3, salary);
+            stm.setInt(4, id);
+            int isSaved = stm.executeUpdate();
+            if(isSaved>0){
+                new Alert(Alert.AlertType.INFORMATION,
+                        "Customer Updated").show();
+                clearField();
+            }else{
+                new Alert(Alert.AlertType.WARNING,
+                        "Try Again").show();
+            }
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,
+                    e.getMessage()).show();
+        }
+    }
 }

@@ -29,5 +29,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
+      <Button layoutX="378.0" layoutY="224.0" mnemonicParsing="false" onAction="#customerUpdateOnAction" prefHeight="34.0" prefWidth="204.0" text="Customer Update">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
