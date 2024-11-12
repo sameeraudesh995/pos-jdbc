@@ -34,5 +34,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Button>
+      <Button layoutX="380.0" layoutY="278.0" mnemonicParsing="false" onAction="#customerDeleteOnAction" prefHeight="34.0" prefWidth="204.0" text="Customer Delete">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

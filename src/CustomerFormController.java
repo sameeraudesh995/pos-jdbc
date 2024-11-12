@@ -114,4 +114,7 @@ public class CustomerFormController {
                     e.getMessage()).show();
         }
     }
+
+    public void customerDeleteOnAction(ActionEvent actionEvent) {
+    }
 }
